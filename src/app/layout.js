@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import BotaoTema from "./components/BotaoTema";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,11 +19,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="pt-br" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-300`}
       >
+
+        {/* Conteúdo da página */}
         {children}
+
+        {/* Botão Flutuante (CSR) */}
+        <BotaoTema/>
       </body>
     </html>
   );
